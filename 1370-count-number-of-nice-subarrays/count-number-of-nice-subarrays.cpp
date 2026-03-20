@@ -16,7 +16,7 @@ public:
              }
                 if(odd_cnt==k){
                  int temp=st;
-                 for(temp=st;temp<i;temp++){
+                 for(temp=st;temp<=i;temp++){
                     if(nums[temp]%2==1)
                     break;
                     else
