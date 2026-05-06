@@ -6,7 +6,13 @@ public:
         int n=nums.size();
         int high=n-1;
         int mid;
+        if(nums[low]<=nums[high]){
+                return nums[low];
+            }
         while(low<=high){
+            
+
+            
                     mid=(low+high)/2;
         if(nums[low]<=nums[mid]){
             mini=min(mini,nums[low]);
