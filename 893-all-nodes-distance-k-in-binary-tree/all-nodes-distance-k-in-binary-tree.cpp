@@ -43,21 +43,22 @@ void dis(TreeNode*root,TreeNode* target, int k, unordered_map<TreeNode*, TreeNod
             TreeNode* node=q.front().first;
             int cnt=q.front().second;
             q.pop();
+            if(cnt == k){
+    ans.push_back(node->val);
+    continue;
+}
             if(node->left&&!visited[node->left]){
                 visited[node->left]=true;
-                if(cnt+1==k) ans.push_back(node->left->val);
-                else q.push({node->left,cnt+1});
+                q.push({node->left,cnt+1});
             }
 
             if(node->right&&!visited[node->right]) {
                 visited[node->right]=true;
-                if(cnt+1==k) ans.push_back(node->right->val);
-                else q.push({node->right, cnt+1});
+                q.push({node->right, cnt+1});
             }
             if(parents[node]&&!visited[parents[node]]){
                 visited[parents[node]]=true;
-                if(cnt+1==k) ans.push_back(parents[node]->val);
-                else q.push({parents[node], cnt+1});
+                 q.push({parents[node], cnt+1});
             }
 
  }
