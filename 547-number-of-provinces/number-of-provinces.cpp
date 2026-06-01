@@ -14,7 +14,7 @@ public:
             int m=q.front();
             q.pop();
             for(int j=0;j<n;j++){
-            if(!visited[j]&&m!=j&&isConnected[j][m]==1&&isConnected[m][j]==1){
+            if(!visited[j]&&isConnected[m][j]==1){
             visited[j]=1;
             q.push(j);
             }
