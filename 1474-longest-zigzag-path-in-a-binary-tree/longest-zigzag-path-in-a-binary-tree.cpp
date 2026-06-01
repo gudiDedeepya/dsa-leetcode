@@ -31,7 +31,6 @@ int maxi=0;
                 maxi=max(maxi,length+1);
                 zigzag(root->left,1,length+1);
             }
-                    maxi=max(maxi,length);
                     zigzag(root->right,2,1);
                 
         }
@@ -41,7 +40,7 @@ int maxi=0;
                 maxi=max(maxi,length+1);
                 zigzag(root->right,2,length+1);
                 }
-                    maxi=max(maxi,length);
+                
                     zigzag(root->left,1,1);
                 
         }
