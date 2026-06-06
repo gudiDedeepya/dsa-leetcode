@@ -20,6 +20,7 @@ int dc[] = {0,0,-1,1};
             int diff=it.first;
             int r=it.second.first;
             int c=it.second.second;
+            if(r==n-1&&c==m-1) return diff;
              for(int d = 0; d < 4; d++) {
              int nr = r + dr[d];
              int nc = c + dc[d];
@@ -36,6 +37,6 @@ int dc[] = {0,0,-1,1};
 
         }
         }
-        return dist[n-1][m-1];
+        return 0;
     }
 };
