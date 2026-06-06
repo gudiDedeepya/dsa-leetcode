@@ -19,7 +19,7 @@ int dc[] = {-1,0,1,-1,1,-1,0,1};
              int nr = a + dr[d];
              int nc = b + dc[d];
 
-             if(nr>=0&&nr<n&&nc>=0&&nc<n&&grid[nr][nc]==0&&dist[a][b]+1<dist[nr][nc]&&grid[nr][nc]==0){
+             if(nr>=0&&nr<n&&nc>=0&&nc<n&&grid[nr][nc]==0&&dist[a][b]+1<dist[nr][nc]){
                 dist[nr][nc]=dist[a][b]+1;
                 q.push({nr,nc});
              }
