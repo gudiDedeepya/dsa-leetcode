@@ -24,6 +24,7 @@ time[k]=0;
 while(!pq.empty()){
     auto [a,b]=pq.top();
     pq.pop();
+    if(a > time[b]) continue;
     for(auto node:adj[b]){
         if(node.second+a<time[node.first]){
             pq.push({node.second+a,node.first});
