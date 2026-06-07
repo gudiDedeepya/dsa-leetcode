@@ -37,15 +37,21 @@ class Solution {
 public:
     int makeConnected(int n, vector<vector<int>>& connections) {
         DisjointSet ds(n);
+        int cnt=0;
+        int cntc=0;
         if(connections.size()<n-1) return -1;
         for(auto vec:connections){
-            ds.unionBySize(vec[0],vec[1]);
+            if(ds.findUPar(vec[0])==ds.findUPar(vec[1]))
+             cnt++;
+             else{
+                ds.unionBySize(vec[0],vec[1]);
+             }
         }
-        unordered_set<int>mpp;
         for(int i=0;i<n;i++){
-           mpp.insert(ds.findUPar(i)); 
+            if(ds.parent[i]==i) cntc++;
         }
-        return mpp.size()-1;
+        if(cnt<cntc-1) return -1;
+        return cntc-1;
 
 
     }
