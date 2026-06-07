@@ -42,8 +42,10 @@ public:
         DisjointSet ds(n);
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
-                if(i!=j&&stones[i][0]==stones[j][0]||stones[i][1]==stones[j][1])
+                if(i!=j){
+                if(stones[i][0]==stones[j][0]||stones[i][1]==stones[j][1])
                 ds.unionBySize(i,j);
+                }
             }
         }
                 unordered_set<int>mpp;
