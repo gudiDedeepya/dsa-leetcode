@@ -24,7 +24,7 @@ vector<int> pse(vector<int>&arr){
           while(!st.empty()&&arr[st.top()]>=arr[i]){
             st.pop();
         }
-         if(!st.empty()&&arr[st.top()]<=arr[i]){
+         if(!st.empty()){
                 output[i]=i-st.top();
         }
       
@@ -44,7 +44,7 @@ vector<int> pse(vector<int>&arr){
         vector<int>left=pse(arr);
         vector<int>right=nse(arr);
         for(int i=0;i<n;i++){
-            sum=sum+(1LL*arr[i]*left[i]*right[i])%mod;
+            sum=(sum+1LL*arr[i]*left[i]*right[i])%mod;
 
         }
         return sum%mod;
