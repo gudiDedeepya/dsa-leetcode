@@ -13,20 +13,19 @@ public:
         int window = n-k;
 
         int sum = 0;
+        int l=0;
+        int msum=INT_MAX;
 
-        for(int i=0;i<window;i++)
-            sum += cardPoints[i];
-
-        int mini = sum;
-
-        for(int r=window;r<n;r++){
-
-            sum += cardPoints[r];
-            sum -= cardPoints[r-window];
-
-            mini = min(mini,sum);
+       for(int i=0;i<n;i++){
+        sum+=cardPoints[i];
+        if(i-l+1==window){
+            msum=min(msum,sum);
+            sum-=cardPoints[l];
+            l++;
         }
 
-        return total - mini;
+       }
+
+        return total -msum;
     }
 };
