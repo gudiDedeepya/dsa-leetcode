@@ -7,7 +7,7 @@ public:
                 i+=2;
             }
             else {
-               int left = i-1>0?flowerbed[i-1]:0;
+               int left = i-1>=0?flowerbed[i-1]:0;
 
               int right =i+1<flowerbed.size()?flowerbed[i+1]:0;
                 if(left==0&&right==0){
