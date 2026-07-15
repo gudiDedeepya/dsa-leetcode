@@ -10,9 +10,9 @@ public:
             else if(moves[i]=='D') 
              y--;
              else if(moves[i]=='L')
-             x++;
+             x--;
              else {
-                x--;
+                x++;
              }
         }
         if(x==0&&y==0) return true;
