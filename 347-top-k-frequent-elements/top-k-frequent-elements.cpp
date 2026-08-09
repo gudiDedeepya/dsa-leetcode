@@ -7,30 +7,21 @@ public:
         // Count frequencies
         for (int x : nums)
             freq[x]++;
+      
+      //int n=freq.size();
+      vector<pair<int,int>>fre;
 
-        // Min-heap: (frequency, element)
-        priority_queue<
-            pair<int,int>,
-            vector<pair<int,int>>,
-            greater<pair<int,int>>
-        > pq;
+      for(auto it:freq){
+        fre.push_back({it.second,it.first});
+      }
+    sort(fre.begin(),fre.end());
+    vector<int>out;
+    int n=fre.size();
+      for(int i=n-1;i>=n-k;i--){
+        out.push_back(fre[i].second);
+      }
 
-        // Keep only k most frequent elements
-        for (auto it : freq) {
-
-            pq.push({it.second, it.first});
-
-            if (pq.size() > k)
-                pq.pop();
-        }
-
-        vector<int> ans;
-
-        while (!pq.empty()) {
-            ans.push_back(pq.top().second);
-            pq.pop();
-        }
-
-        return ans;
+return out;
+       
     }
 };
