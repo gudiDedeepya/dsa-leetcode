@@ -11,18 +11,17 @@ class Solution {
 public:
     TreeNode* lca(TreeNode* root, TreeNode* p, TreeNode* q){
         if(root==NULL) return NULL;
-        if(root==p||root==q) return root;
+       if(root==p) return p;
+       if(root==q) return q;
+       TreeNode*left=lca(root->left,p,q);
+       TreeNode*right=lca(root->right,p,q);
+       if(left!=NULL&&right!=NULL) return root;
+       if(left!=NULL) return left;
+       return right;
 
-        TreeNode* left=lca(root->left,p,q);
-        TreeNode* right=lca(root->right,p,q);
-
-        if(left!=NULL&&right!=NULL) return root;
-        if(left) return left;
-         return right;
     }
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if(root==p||root==q) return root;
-       TreeNode*la =lca(root,p,q);
-        return la;
+       return lca(root,p,q);
     }
+
 };
